@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pets Disponíveis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/pet/petList.css" />
+<link rel="stylesheet" href="../css/base.css" />
+</head>
+<body>
+
+<iframe src="../cabecalho.html" class="header-frame header-frame-sm"></iframe>
+
+<main class="page-wrapper">
+  <div class="page-header">
+    <h1>Pets disponíveis</h1>
+    <a href="add.html" class="btn-add">Cadastrar pet</a>
+  </div>
+  <div id="pet-grid" class="pet-grid"></div>
+  <div id="empty-msg" class="empty">
+    <p>Nenhum pet cadastrado ainda.</p>
+    <a href="add.html" class="btn-add">Cadastrar o primeiro pet</a>
+  </div>
+</main>
+
+<script src="../javascript/constantes.js"></script>
+<script src="../javascript/accounts/common.js"></script>
+<script src="../javascript/pet/list.js"></script>
+</body>
+</html>

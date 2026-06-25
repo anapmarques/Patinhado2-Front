@@ -79,6 +79,26 @@
     border-color: var(--ink);
 }
 
+.password-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.password-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.password-toggle span {
+    font-size: .78rem;
+    color: var(--mid);
+    font-weight: 300;
+}
+
 .btn-submit {
     margin-top: 20px;
     width: 100%;

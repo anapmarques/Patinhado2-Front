@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Editar Pedido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/pet/addpet.css" />
+<link rel="stylesheet" href="../css/base.css" />
+</head>
+<body>
+
+<iframe src="../cabecalho.html" class="header-frame header-frame-sm"></iframe>
+
+<main class="page-wrapper">
+  <div class="form-card">
+    <p class="pet-name-label">Editar Pedido</p>
+    <h1 id="pedido-title">Editar mensagem</h1>
+    <div class="pet-preview" id="pet-preview"></div>
+    <form id="pedido-form">
+      <div class="field-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="btn-submit">Salvar</button>
+        <a href="pedido_detail.html" id="cancel-link" class="btn-cancelar">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script src="../javascript/constantes.js"></script>
+<script src="../javascript/accounts/common.js"></script>
+<script src="../javascript/pet/pedido_edit.js"></script>
+</body>
+</html>

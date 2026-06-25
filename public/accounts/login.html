@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Entrar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+<iframe src="../cabecalho.html" class="header-frame header-frame-lg"></iframe>
+<div class="login-wrapper">
+    <div class="login-card">
+        <h1>Entrar</h1>
+        <p class="subtitle">Faça login para continuar</p>
+        <form id="login-form">
+            <table class="formulario">
+                <tr>
+                    <td><label for="username">Usuário</label></td>
+                    <td><input type="text" id="username" name="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Senha</label></td>
+                    <td>
+                        <div class="password-field">
+                            <input type="password" id="password" name="password" required>
+                            <div class="password-toggle">
+                                <img src="../img/eye-off.svg" class="toggle-password" alt="" width="20" height="20">
+                                <span>Mostrar senha</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="login-error" class="form-message-error"></div>
+            <input type="submit" value="Entrar" class="btn-submit">
+        </form>
+        <p class="register-link"><a href="password_reset.html">Esqueceu a senha?</a></p>
+        <p class="register-link">Não tem uma conta? <a href="register.html">Cadastre-se</a></p>
+    </div>
+</div>
+<footer>
+    <div class="footer-logo"><img src="../img/logo.png" alt="Logo"></div>
+    <div class="footer-links">
+        <a href="../about.html">Sobre Nós</a>
+        <a href="../pet/list.html">Pets</a>
+        <a href="../contact.html">Contato</a>
+    </div>
+    <div class="footer-copy">© 2026</div>
+</footer>
+<script src="../javascript/constantes.js"></script>
+<script src="../javascript/accounts/common.js"></script>
+<script src="../javascript/accounts/login.js"></script>
+</body>
+</html>

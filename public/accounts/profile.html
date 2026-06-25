@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Perfil do Usuário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+<iframe src="../cabecalho.html" class="header-frame header-frame-lg"></iframe>
+<main>
+    <div class="profile-card">
+        <div class="avatar-wrap">
+            <div class="avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+            </div>
+        </div>
+        <div class="profile-info">
+            <div class="info-row">
+                <span class="info-label">Usuário</span>
+                <span class="info-value" id="profile-username"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Nome</span>
+                <span class="info-value" id="profile-first-name"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Sobrenome</span>
+                <span class="info-value" id="profile-last-name"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Email</span>
+                <span class="info-value" id="profile-email"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Telefone</span>
+                <span class="info-value" id="profile-telefone"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Endereço</span>
+                <span class="info-value" id="profile-endereco"></span>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Meus Pets para Adoção</h2>
+    <div class="history-grid" id="pets-doacao"></div>
+
+    <h2 class="section-title">Solicitações de Adoção Recebidas</h2>
+    <div class="history-grid" id="pedidos-recebidos"></div>
+
+    <h2 class="section-title">Minhas Solicitações de Adoção</h2>
+    <div class="history-grid" id="pedidos-enviados"></div>
+
+    <h2 class="section-title">Histórico de Adoções</h2>
+    <div class="history-grid" id="pets-adotados"></div>
+
+    <div class="actions">
+        <a href="password_change.html" class="btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Alterar Senha
+        </a>
+        <a href="edit_profile.html" class="btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            Editar
+        </a>
+        <a href="delete_profile.html" class="btn btn-delete">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                <path d="M10 11v6M14 11v6"/>
+                <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+            </svg>
+            Excluir
+        </a>
+    </div>
+</main>
+<footer>
+    <div class="footer-logo"><img src="../img/logo.png" alt="Logo"></div>
+    <div class="footer-links">
+        <a href="../about.html">Sobre Nós</a>
+        <a href="../pet/list.html">Pets</a>
+        <a href="../contact.html">Contato</a>
+    </div>
+    <div class="footer-copy">© 2026</div>
+</footer>
+<script src="../javascript/constantes.js"></script>
+<script src="../javascript/accounts/common.js"></script>
+<script src="../javascript/accounts/profile.js"></script>
+</body>
+</html>

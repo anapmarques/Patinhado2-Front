@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patinhado - Adoção de Pets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<iframe src="cabecalho.html" class="header-frame" title="Cabeçalho"></iframe>
+
+<section class="hero">
+  <div class="hero-placeholder">
+    <span>Patinhado</span>
+  </div>
+</section>
+
+<div class="fade-divider"></div>
+
+<section class="catalog">
+  <div class="filters">
+    <input type="text" class="filter-search" placeholder="Buscar pet...">
+    <input type="text" class="filter-category" placeholder="Espécie...">
+    <a href="pet/add.html" class="catalog-add-link" id="cadastrar-pet-link">+ Cadastrar pet</a>
+  </div>
+  <div class="grid" id="pet-list"></div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="../img/logo.png" alt="Logo"></div>
+  <div class="footer-links">
+    <a href="about.html">Sobre Nós</a>
+    <a href="#/">Pets</a>
+    <a href="contact.html">Contato</a>
+  </div>
+  <div class="footer-copy">© 2026</div>
+</footer>
+
+<script src="javascript/constantes.js"></script>
+<script src="javascript/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pedido de Adoção</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/pet/addpet.css" />
+<link rel="stylesheet" href="../css/base.css" />
+</head>
+<body>
+
+<iframe src="../cabecalho.html" class="header-frame header-frame-sm"></iframe>
+
+<main class="page-wrapper">
+  <div class="form-card" id="pedido-card">
+    <p class="pet-name-label">Pedido de Adoção</p>
+    <h1 id="pet-nome"></h1>
+    <div class="pet-preview" id="pet-preview"></div>
+    <table class="info-table">
+      <tr><th>Solicitante</th><td id="pedido-solicitante"></td></tr>
+      <tr><th>Doador</th><td id="pedido-doador"></td></tr>
+      <tr><th>Status</th><td id="pedido-status"></td></tr>
+      <tr><th>Data do Pedido</th><td id="pedido-data"></td></tr>
+      <tr id="data-resposta-row" class="is-hidden"><th>Data da Resposta</th><td id="pedido-data-resposta"></td></tr>
+    </table>
+    <div id="pedido-mensagem-container" class="is-hidden">
+      <div class="detail-desc-label">Mensagem</div>
+      <p class="detail-desc" id="pedido-mensagem"></p>
+    </div>
+    <div class="btn-row" id="pedido-actions"></div>
+  </div>
+</main>
+
+<script src="../javascript/constantes.js"></script>
+<script src="../javascript/accounts/common.js"></script>
+<script src="../javascript/pet/pedido_detail.js"></script>
+</body>
+</html>

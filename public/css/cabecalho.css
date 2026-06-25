@@ -1,0 +1,6 @@
+body { margin: 0; background: var(--bg); overflow: hidden; min-height: 0; }
+header { height: 68px; position: static; box-sizing: border-box; }
+.visivel { display: flex !important; align-items: center; gap: 12px; }
+.invisivel { display: none !important; }
+#identificacao { font-weight: 500; color: var(--ink); }
+.header-info { font-size: .8rem; color: var(--mid); margin-right: 8px; }

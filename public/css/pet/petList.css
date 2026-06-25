@@ -207,6 +207,7 @@ td {
 }
 
 .empty {
+  display: none;
   background: var(--card-bg);
   border: 1px solid rgba(26,23,20,.12);
   border-radius: 18px;

@@ -212,7 +212,8 @@
   .card-img {
     width: 100%;
     aspect-ratio: 4/3;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
     display: block;
   }
 
@@ -326,6 +327,20 @@
   .card:nth-child(6)  { animation-delay: .40s; }
   .card:nth-child(7)  { animation-delay: .47s; }
   .card:nth-child(8)  { animation-delay: .54s; }
+
+  /* ── IFRAME HEADER ────────────────────────── */
+  .header-frame { width: 100%; border: none; display: block; height: 68px; position: sticky; top: 0; z-index: 100; min-height: 0; }
+
+  /* ── CATALOG ADD LINK ────────────────────── */
+  .catalog-add-link {
+    margin-left: auto;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+  }
 
   /* ── RESPONSIVE ──────────────────────────── */
   @media (max-width: 900px) {

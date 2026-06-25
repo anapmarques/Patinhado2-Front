@@ -4,7 +4,7 @@
     --mid: #6b6560;
     --accent: #c0392b;
     --card-bg: #faf8f5;
-    --nav-h: 100px;
+    --nav-h: 68px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -140,6 +140,17 @@
     from { opacity: 0; transform: translateY(22px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
+  /* ── IFRAME HEADER ────────────────────────── */
+.header-frame { width: 100%; border: none; display: block; position: sticky; top: 0; z-index: 100; min-height: 0; overflow: hidden; }
+.header-frame-lg { height: 68px; }
+.header-frame-sm { height: 68px; }
+
+  /* ── FORMS ───────────────────────────────── */
+  .toggle-password { cursor: pointer; width: 20px; height: 20px; flex-shrink: 0; }
+
+  .form-message-error { color: var(--accent); font-size: .85rem; margin-top: 12px; }
+  .form-message-success { color: #2e7d32; font-size: .85rem; margin-top: 12px; }
 
   /* ── RESPONSIVE ──────────────────────────── */
   @media (max-width: 700px) {

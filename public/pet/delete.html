@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Excluir Pet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/pet/petDelete.css" />
+<link rel="stylesheet" href="../css/base.css" />
+</head>
+<body>
+
+<iframe src="../cabecalho.html" class="header-frame header-frame-sm"></iframe>
+
+<main class="page-wrapper">
+  <div class="confirm-card">
+    <div class="warn-icon">!</div>
+    <h1>Excluir pet</h1>
+    <p>Tem certeza que deseja excluir</p>
+    <p class="pet-destaque" id="pet-nome"></p>
+    <div class="pet-info" id="pet-info"></div>
+    <p>Esta ação é permanente e não pode ser desfeita.</p>
+    <form id="delete-form">
+      <div class="btn-row">
+        <button type="submit" class="btn-confirmar">Sim, excluir</button>
+        <a href="list.html" class="btn-cancelar">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script src="../javascript/constantes.js"></script>
+<script src="../javascript/accounts/common.js"></script>
+<script src="../javascript/pet/delete.js"></script>
+</body>
+</html>

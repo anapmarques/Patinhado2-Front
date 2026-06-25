@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Detalhes do Pet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/pet/petDetail.css" />
+<link rel="stylesheet" href="../css/base.css" />
+</head>
+<body>
+
+<iframe src="../cabecalho.html" class="header-frame header-frame-sm"></iframe>
+
+<main class="page-wrapper">
+  <div class="breadcrumb">
+    <a href="list.html">Pets</a>
+    <span>›</span>
+    <span id="pet-nome-breadcrumb"></span>
+  </div>
+  <div class="detail-card" id="detail-card">
+    <div id="detail-img-container"></div>
+    <div class="detail-body">
+      <div class="detail-especie" id="pet-especie"></div>
+      <h1 class="detail-nome" id="pet-nome"></h1>
+      <h4 class="detail-info" id="pet-info"></h4>
+      <span class="badge" id="pet-status-badge"></span>
+      <table class="info-table">
+        <tr><th>Doador</th><td id="pet-doador"></td></tr>
+      </table>
+      <p class="descricao-texto" id="pet-descricao"></p>
+      <div class="detail-actions" id="detail-actions"></div>
+    </div>
+  </div>
+</main>
+
+<script src="../javascript/constantes.js"></script>
+<script src="../javascript/accounts/common.js"></script>
+<script src="../javascript/pet/detail.js"></script>
+</body>
+</html>

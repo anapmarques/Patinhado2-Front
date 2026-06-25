@@ -1,3 +1,9 @@
+/* ── PAGE WRAPPER ────────────────────────── */
+.page-wrapper {
+  padding: 0 40px 80px;
+  flex: 1;
+}
+
 /* ── EDIT CARD ───────────────────────────── */
 .edit-card,
 .form-card {
