@@ -9,8 +9,19 @@ onload = async function () {
         return;
     }
     const pedido = await response.json();
-    const animal = pedido.animal || pedido.pet || {};
-    const especieLabel = animal.especie === 'C' ? 'Cachorro' : animal.especie === 'G' ? 'Gato' : '';
+    const rawAnimal = pedido.animal || pedido.pet;
+    const animalId = rawAnimal && typeof rawAnimal === 'object' ? rawAnimal.id : rawAnimal;
+    let animal = rawAnimal || {};
+    if (animalId) {
+        try {
+            const petResponse = await fetch(backendAddress + 'pets/' + animalId + '/');
+            if (petResponse.ok) {
+                animal = await petResponse.json();
+            }
+        }
+        catch (_) { }
+    }
+    const especieLabel = animal.especie;
     document.getElementById('pet-nome').textContent = animal.nome || '';
     const preview = document.getElementById('pet-preview');
     let imgHtml = '';
@@ -22,7 +33,7 @@ onload = async function () {
     }
     preview.innerHTML = imgHtml + '<p>' + especieLabel + ' | ' + (animal.raca || '—') + ' | ' + (animal.idade || '?') + ' anos</p>';
     const solicitanteNome = pedido.solicitante_username || pedido.solicitante_nome || pedido.solicitante || '—';
-    const doadorNome = pedido.doador_username || pedido.doador_nome || (animal.doador_username || animal.doador || '—');
+    const doadorNome = pedido.doador_username || pedido.doador_nome || (animal.doador_nome || animal.doador || '—');
     document.getElementById('pedido-solicitante').textContent = solicitanteNome;
     document.getElementById('pedido-doador').textContent = doadorNome;
     const statusEl = document.getElementById('pedido-status');
@@ -46,8 +57,8 @@ onload = async function () {
                 const userData = await meResponse.json();
                 const userId = userData.id || userData.user_id;
                 const solicitanteId = pedido.solicitante_id || pedido.solicitante;
-                const doadorId = pedido.doador_id || animal.doador_id || animal.doador;
                 const actionsDiv = document.getElementById('pedido-actions');
+                const doadorId = pedido.doador_id || animal.doador_id || animal.doador;
                 if (userId && solicitanteId && Number(userId) === Number(solicitanteId)) {
                     actionsDiv.innerHTML = '<a href="pedido_edit.html?id=' + id + '" class="btn-submit">Editar</a>'
                         + '<button type="button" class="btn-cancelar" id="btn-cancelar">Cancelar Pedido</button>';
@@ -62,7 +73,7 @@ onload = async function () {
                     });
                 }
                 else if (userId && doadorId && Number(userId) === Number(doadorId)) {
-                    actionsDiv.innerHTML = '<button type="button" class="btn-submit" id="btn-aprovar">Aprovar</button>'
+                    actionsDiv.innerHTML = '<button type="button" class="btn-submit" id="btn-aprovar">Aceitar</button>'
                         + '<button type="button" class="btn-cancelar" id="btn-rejeitar">Rejeitar</button>';
                     document.getElementById('btn-aprovar').addEventListener('click', async () => {
                         const res = await authFetch(backendAddress + 'pedidos/' + id + '/aprovar/', { method: 'POST' });

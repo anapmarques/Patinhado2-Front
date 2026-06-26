@@ -45,7 +45,7 @@ const renderProfile = async (data) => {
     const recebidosContainer = document.getElementById('pedidos-recebidos');
     if (recebidosContainer) {
         try {
-            const pedidosResponse = await authFetch(backendAddress + 'pedidos/recebidos/');
+            const pedidosResponse = await authFetch(backendAddress + 'pedidos/recebidos/?status=pendente');
             if (pedidosResponse.ok) {
                 const pedidos = await pedidosResponse.json();
                 if (pedidos.length > 0) {
@@ -66,7 +66,7 @@ const renderProfile = async (data) => {
     const enviadosContainer = document.getElementById('pedidos-enviados');
     if (enviadosContainer) {
         try {
-            const pedidosResponse = await authFetch(backendAddress + 'pedidos/');
+            const pedidosResponse = await authFetch(backendAddress + 'pedidos/?status=pendente');
             if (pedidosResponse.ok) {
                 const pedidos = await pedidosResponse.json();
                 if (pedidos.length > 0) {
@@ -91,7 +91,7 @@ const renderProfile = async (data) => {
             if (adotadosResponse.ok) {
                 const adotados = await adotadosResponse.json();
                 if (adotados.length > 0) {
-                    adotadosContainer.innerHTML = adotados.map((pet) => petCard(pet)).join('');
+                    adotadosContainer.innerHTML = adotados.map((pet) => pedidoCard(pet, false)).join('');
                 }
                 else {
                     adotadosContainer.innerHTML = '<p style="color: var(--mid); font-size: .9rem;">Você ainda não adotou nenhum pet.</p>';

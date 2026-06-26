@@ -4,8 +4,18 @@ onload = async function () {
     const response = await authFetch(backendAddress + 'pedidos/' + id + '/');
     if (!response.ok) { return; }
     const pedido = await response.json();
-    const animal = pedido.animal || pedido.pet || {};
-    const especieLabel = animal.especie === 'C' ? 'Cachorro' : animal.especie === 'G' ? 'Gato' : '';
+    const rawAnimal = pedido.animal || pedido.pet;
+    const animalId = rawAnimal && typeof rawAnimal === 'object' ? rawAnimal.id : rawAnimal;
+    let animal: any = rawAnimal || {};
+    if (animalId) {
+        try {
+            const petResponse = await fetch(backendAddress + 'pets/' + animalId + '/');
+            if (petResponse.ok) {
+                animal = await petResponse.json();
+            }
+        } catch (_) {}
+    }
+    const especieLabel = animal.especie;
     document.getElementById('pedido-title')!.textContent = 'Editar mensagem para ' + (animal.nome || '');
     (document.getElementById('cancel-link') as HTMLAnchorElement).href = 'pedido_detail.html?id=' + id;
     const preview = document.getElementById('pet-preview')!;

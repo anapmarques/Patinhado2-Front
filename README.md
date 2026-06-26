@@ -88,10 +88,13 @@ const API_BASE = 'http://localhost:8000/api';
 ```
 
 ## Screenshots
-*[Adicionar screenshots aqui]*
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image.png)
 
 ## O que funcionou
-- [Listar funcionalidades testadas]
-
-## O que não funcionou
-- [Listar funcionalidades com problemas]
+- CRUD usuário
+- CRUD pedidos de adoção
+- CRUD pets
