@@ -61,7 +61,6 @@ public/
   css/                # Estilos CSS
   javascript/         # JavaScript compilado do TypeScript
   img/                # Imagens
-  html_old/           # Templates Django originais (arquivados)
 typescript/           # Código-fonte TypeScript
   app.ts              # Entry point e configuração de rotas
   api.ts              # Cliente HTTP com JWT
@@ -98,3 +97,10 @@ const API_BASE = 'http://localhost:8000/api';
 - CRUD usuário
 - CRUD pedidos de adoção
 - CRUD pets
+
+## Disclaimer
+
+Este trabalho foi desenvolvido com auxílio de inteligência artificial.
+
+- **Modelo de IA**: Big Pickle (opencode/big-pickle)
+- **Ferramenta**: OpenCode
