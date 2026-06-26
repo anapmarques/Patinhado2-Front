@@ -8,7 +8,7 @@ const login = async (evento) => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     try {
-        const response = await fetch(backendAddress + 'api/token/', {
+        const response = await fetch(backendAddress + 'auth/token/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })

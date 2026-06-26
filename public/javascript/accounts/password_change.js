@@ -9,7 +9,7 @@ const changePassword = async (evento) => {
     const new_password = document.getElementById('new_password').value;
     const new_password2 = document.getElementById('new_password2').value;
     try {
-        const response = await authFetch(backendAddress + 'api/auth/password/change/', {
+        const response = await authFetch(backendAddress + 'auth/password/change/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ old_password, new_password, new_password2 })
@@ -18,9 +18,14 @@ const changePassword = async (evento) => {
         const successDiv = document.getElementById('password-change-success');
         if (response.ok) {
             if (successDiv)
-                successDiv.textContent = 'Senha alterada com sucesso.';
+                successDiv.textContent = 'Senha alterada com sucesso. Redirecionando...';
             if (errorDiv)
                 errorDiv.textContent = '';
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            setTimeout(() => {
+                window.top.location.href = '/login.html';
+            }, 1500);
         }
         else {
             const data = await response.json();

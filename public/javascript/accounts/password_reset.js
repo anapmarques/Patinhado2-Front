@@ -7,7 +7,7 @@ const resetPassword = async (evento) => {
     evento.preventDefault();
     const email = document.getElementById('email').value;
     try {
-        const response = await fetch(backendAddress + 'api/auth/password/reset/', {
+        const response = await fetch(backendAddress + 'auth/password/reset/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })

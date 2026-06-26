@@ -1,6 +1,6 @@
 onload = async () => {
     try {
-        const response = await authFetch(backendAddress + 'api/profile/dashboard/');
+        const response = await authFetch(backendAddress + 'auth/profile/');
         if (response.ok) {
             const data = await response.json();
             (document.getElementById('username') as HTMLInputElement).value = data.username || '';
@@ -29,7 +29,7 @@ const updateProfile = async (evento: Event) => {
     const endereco = (document.getElementById('endereco') as HTMLInputElement).value;
 
     try {
-        const response = await authFetch(backendAddress + 'api/profile/', {
+        const response = await authFetch(backendAddress + 'auth/profile/', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, first_name, last_name, telefone, endereco })

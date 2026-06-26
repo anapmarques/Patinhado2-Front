@@ -4,7 +4,7 @@ onload = async () => {
 };
 
 async function exibeListaDePets() {
-    const response = await fetch(backendAddress + 'api/pets/');
+    const response = await fetch(backendAddress + 'pets/');
     const petList = document.getElementById('pet-list');
     if (!petList) return;
 

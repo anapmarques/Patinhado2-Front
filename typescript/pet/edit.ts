@@ -1,10 +1,10 @@
 onload = async function () {
     const id = new URLSearchParams(window.location.search).get('id');
     if (!id) { return; }
-    const response = await authFetch(backendAddress + 'api/pets/' + id + '/');
+    const response = await authFetch(backendAddress + 'pets/' + id + '/');
     if (!response.ok) { return; }
     const pet = await response.json();
-    const especieLabel = pet.especie === 'C' ? 'Cachorro' : 'Gato';
+    const especieLabel = pet.especie;
     document.getElementById('pet-especie-label')!.textContent = especieLabel;
     document.getElementById('pet-subtitle')!.textContent = 'Atualize os dados de ' + pet.nome;
     (document.getElementById('nome') as HTMLInputElement).value = pet.nome;
@@ -24,7 +24,7 @@ onload = async function () {
         if (data.raca === '') { delete data.raca; }
         if (data.descricao === '') { delete data.descricao; }
         try {
-            const res = await authFetch(backendAddress + 'api/pets/' + id + '/', {
+            const res = await authFetch(backendAddress + 'pets/' + id + '/', {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)

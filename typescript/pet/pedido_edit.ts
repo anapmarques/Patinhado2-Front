@@ -1,7 +1,7 @@
 onload = async function () {
     const id = new URLSearchParams(window.location.search).get('id');
     if (!id) { return; }
-    const response = await authFetch(backendAddress + 'api/pedidos/' + id + '/');
+    const response = await authFetch(backendAddress + 'pedidos/' + id + '/');
     if (!response.ok) { return; }
     const pedido = await response.json();
     const animal = pedido.animal || pedido.pet || {};
@@ -21,7 +21,7 @@ onload = async function () {
         event.preventDefault();
         const mensagem = (document.getElementById('mensagem') as HTMLTextAreaElement).value;
         try {
-            const res = await authFetch(backendAddress + 'api/pedidos/' + id + '/', {
+            const res = await authFetch(backendAddress + 'pedidos/' + id + '/', {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ mensagem: mensagem })

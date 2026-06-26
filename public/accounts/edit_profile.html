@@ -35,7 +35,7 @@
             </div>
             <div class="field-row">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="telefone">
+                <input type="text" id="telefone" name="telefone" inputmode="numeric" pattern="[0-9]*" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
             </div>
             <div class="field-row">
                 <label for="endereco">Endereço</label>

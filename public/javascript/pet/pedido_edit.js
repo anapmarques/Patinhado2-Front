@@ -4,7 +4,7 @@ onload = async function () {
     if (!id) {
         return;
     }
-    const response = await authFetch(backendAddress + 'api/pedidos/' + id + '/');
+    const response = await authFetch(backendAddress + 'pedidos/' + id + '/');
     if (!response.ok) {
         return;
     }
@@ -27,7 +27,7 @@ onload = async function () {
         event.preventDefault();
         const mensagem = document.getElementById('mensagem').value;
         try {
-            const res = await authFetch(backendAddress + 'api/pedidos/' + id + '/', {
+            const res = await authFetch(backendAddress + 'pedidos/' + id + '/', {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ mensagem: mensagem })

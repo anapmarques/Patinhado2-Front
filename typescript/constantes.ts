@@ -1,4 +1,4 @@
-const backendAddress = 'http://localhost:8000/';
+const backendAddress = 'http://localhost:8000/api/';
 
 interface JwtResposta {
     access: string;

@@ -10,7 +10,7 @@ onload = async function () {
         if (data.raca === '') { delete data.raca; }
         if (data.descricao === '') { delete data.descricao; }
         try {
-            const response = await authFetch(backendAddress + 'api/pets/', {
+            const response = await authFetch(backendAddress + 'pets/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)

@@ -1,5 +1,12 @@
 onload = async function () {
-    const response = await fetch(backendAddress + 'api/pets/');
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+        const headerBtn = document.getElementById('btn-cadastrar-header');
+        const emptyBtn = document.getElementById('btn-cadastrar-empty');
+        if (headerBtn) headerBtn.style.display = 'none';
+        if (emptyBtn) emptyBtn.style.display = 'none';
+    }
+    const response = await fetch(backendAddress + 'pets/');
     const pets = await response.json();
     const grid = document.getElementById('pet-grid') as HTMLDivElement;
     const empty = document.getElementById('empty-msg') as HTMLDivElement;
@@ -19,7 +26,7 @@ onload = async function () {
         } else {
             imgHtml = '<div class="card-img-placeholder"><span>' + pet.nome.charAt(0).toUpperCase() + '</span></div>';
         }
-        const especieLabel = pet.especie === 'C' ? 'Cachorro' : 'Gato';
+        const especieLabel = pet.especie;
         const statusHtml = pet.adotado
             ? '<span class="badge badge-adotado">Adotado</span>'
             : '<span class="badge badge-disponivel">Disponível</span>';

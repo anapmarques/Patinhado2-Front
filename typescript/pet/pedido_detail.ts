@@ -1,7 +1,7 @@
 onload = async function () {
     const id = new URLSearchParams(window.location.search).get('id');
     if (!id) { return; }
-    const response = await authFetch(backendAddress + 'api/pedidos/' + id + '/');
+    const response = await authFetch(backendAddress + 'pedidos/' + id + '/');
     if (!response.ok) { return; }
     const pedido = await response.json();
     const animal = pedido.animal || pedido.pet || {};
@@ -35,9 +35,9 @@ onload = async function () {
     const token = localStorage.getItem('access_token');
     if (token && pedido.status === 'pendente') {
         try {
-            const whoResponse = await authFetch(backendAddress + 'accounts/whoami/');
-            if (whoResponse.ok) {
-                const userData = await whoResponse.json();
+            const meResponse = await authFetch(backendAddress + 'auth/me/');
+            if (meResponse.ok) {
+                const userData = await meResponse.json();
                 const userId = userData.id || userData.user_id;
                 const solicitanteId = pedido.solicitante_id || pedido.solicitante;
                 const doadorId = pedido.doador_id || animal.doador_id || animal.doador;
@@ -46,7 +46,7 @@ onload = async function () {
                     actionsDiv.innerHTML = '<a href="pedido_edit.html?id=' + id + '" class="btn-submit">Editar</a>'
                         + '<button type="button" class="btn-cancelar" id="btn-cancelar">Cancelar Pedido</button>';
                     document.getElementById('btn-cancelar')!.addEventListener('click', async () => {
-                        const res = await authFetch(backendAddress + 'api/pedidos/' + id + '/cancel/', { method: 'POST' });
+                        const res = await authFetch(backendAddress + 'pedidos/' + id + '/cancelar/', { method: 'POST' });
                         if (res.ok) { window.location.reload(); }
                         else { alert('Erro ao cancelar pedido'); }
                     });
@@ -54,12 +54,12 @@ onload = async function () {
                     actionsDiv.innerHTML = '<button type="button" class="btn-submit" id="btn-aprovar">Aprovar</button>'
                         + '<button type="button" class="btn-cancelar" id="btn-rejeitar">Rejeitar</button>';
                     document.getElementById('btn-aprovar')!.addEventListener('click', async () => {
-                        const res = await authFetch(backendAddress + 'api/pedidos/' + id + '/approve/', { method: 'POST' });
+                        const res = await authFetch(backendAddress + 'pedidos/' + id + '/aprovar/', { method: 'POST' });
                         if (res.ok) { window.location.reload(); }
                         else { alert('Erro ao aprovar pedido'); }
                     });
                     document.getElementById('btn-rejeitar')!.addEventListener('click', async () => {
-                        const res = await authFetch(backendAddress + 'api/pedidos/' + id + '/reject/', { method: 'POST' });
+                        const res = await authFetch(backendAddress + 'pedidos/' + id + '/rejeitar/', { method: 'POST' });
                         if (res.ok) { window.location.reload(); }
                         else { alert('Erro ao rejeitar pedido'); }
                     });

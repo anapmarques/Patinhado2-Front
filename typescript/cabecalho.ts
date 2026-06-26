@@ -7,13 +7,13 @@ const logout = (evento: MouseEvent) => {
     evento.preventDefault();
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
-    window.location.href = '/';
+    window.top!.location.href = '/';
 }
 
 const identifica = async () => {
     const spanElement = document.getElementById('identificacao') as HTMLSpanElement;
 
-    const response = await authFetch(backendAddress + 'accounts/whoami/', {
+    const response = await authFetch(backendAddress + 'auth/me/', {
         method: 'GET'
     });
 

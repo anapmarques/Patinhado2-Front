@@ -8,12 +8,12 @@ const logout = (evento) => {
     evento.preventDefault();
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
-    window.location.href = '/';
+    window.top.location.href = '/';
 };
 const identifica = async () => {
     var _a;
     const spanElement = document.getElementById('identificacao');
-    const response = await authFetch(backendAddress + 'accounts/whoami/', {
+    const response = await authFetch(backendAddress + 'auth/me/', {
         method: 'GET'
     });
     let objDivlogged = document.getElementById('logged');

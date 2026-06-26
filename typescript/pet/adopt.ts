@@ -1,11 +1,11 @@
 onload = async function () {
     const id = new URLSearchParams(window.location.search).get('id');
     if (!id) { return; }
-    const response = await fetch(backendAddress + 'api/pets/' + id + '/');
+    const response = await fetch(backendAddress + 'pets/' + id + '/');
     if (!response.ok) { return; }
     const pet = await response.json();
     const preview = document.getElementById('pet-preview')!;
-    const especieLabel = pet.especie === 'C' ? 'Cachorro' : 'Gato';
+    const especieLabel = pet.especie;
     let imgHtml = '';
     if (pet.foto) {
         imgHtml = '<img src="' + pet.foto + '" alt="' + pet.nome + '" />';
@@ -17,10 +17,10 @@ onload = async function () {
         event.preventDefault();
         const mensagem = (document.getElementById('mensagem') as HTMLTextAreaElement).value;
         try {
-            const res = await authFetch(backendAddress + 'api/pets/' + id + '/adopt/', {
+            const res = await authFetch(backendAddress + 'pedidos/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ mensagem: mensagem })
+                body: JSON.stringify({ animal: id, mensagem: mensagem })
             });
             if (res.ok) {
                 window.location.href = '../accounts/profile.html';

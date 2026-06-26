@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  tsc-watch:
+    image: node:20-alpine
+    working_dir: /app/typescript
+    command: sh -c "npm install -g typescript && npx tsc --watch"
+    volumes:
+      - ./typescript:/app/typescript
+      - ./public/javascript:/app/public/javascript
+
+  frontend:
+    build: .
+    ports:
+      - "3000:80"
+    volumes:
+      - ./public:/usr/share/nginx/html
+    depends_on:
+      - tsc-watch
+    environment:
+      - API_BASE_URL=http://localhost:8000/api/

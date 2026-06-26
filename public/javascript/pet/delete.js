@@ -4,7 +4,7 @@ onload = async function () {
     if (!id) {
         return;
     }
-    const response = await authFetch(backendAddress + 'api/pets/' + id + '/');
+    const response = await authFetch(backendAddress + 'pets/' + id + '/');
     if (!response.ok) {
         return;
     }
@@ -20,7 +20,7 @@ onload = async function () {
     document.getElementById('delete-form').addEventListener('submit', async (event) => {
         event.preventDefault();
         try {
-            const res = await authFetch(backendAddress + 'api/pets/' + id + '/', {
+            const res = await authFetch(backendAddress + 'pets/' + id + '/', {
                 method: 'DELETE'
             });
             if (res.ok) {

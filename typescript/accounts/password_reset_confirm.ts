@@ -23,7 +23,7 @@ const confirmReset = async (evento: Event) => {
     const new_password2 = (document.getElementById('new_password2') as HTMLInputElement).value;
 
     try {
-        const response = await fetch(backendAddress + 'api/auth/password/reset/confirm/', {
+        const response = await fetch(backendAddress + 'auth/password/reset/confirm/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ uid, token, new_password, new_password2 })
@@ -34,6 +34,11 @@ const confirmReset = async (evento: Event) => {
         if (response.ok) {
             if (successDiv) successDiv.innerHTML = 'Senha redefinida com sucesso. <a href="login.html" style="color:var(--accent);">Faça login</a>.';
             if (errorDiv) errorDiv.textContent = '';
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            setTimeout(() => {
+                window.top!.location.href = '/login.html';
+            }, 1500);
         } else {
             const data = await response.json();
             if (errorDiv) {

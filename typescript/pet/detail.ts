@@ -1,7 +1,7 @@
 onload = async function () {
     const id = new URLSearchParams(window.location.search).get('id');
     if (!id) { return; }
-    const response = await fetch(backendAddress + 'api/pets/' + id + '/');
+    const response = await fetch(backendAddress + 'pets/' + id + '/');
     if (!response.ok) { return; }
     const pet = await response.json();
     document.getElementById('pet-nome-breadcrumb')!.textContent = pet.nome;
@@ -11,10 +11,10 @@ onload = async function () {
     } else if (pet.foto_url) {
         imgContainer.innerHTML = '<img src="' + pet.foto_url + '" alt="Foto de ' + pet.nome + '" class="detail-img" />';
     } else {
-        const especieLabel = pet.especie === 'C' ? 'Cachorro' : 'Gato';
+        const especieLabel = pet.especie === 'cachorro' ? 'Cachorro' : 'Gato';
         imgContainer.innerHTML = '<div class="detail-img-placeholder"><span>' + especieLabel + '</span></div>';
     }
-    const especieLabel = pet.especie === 'C' ? 'Cachorro' : 'Gato';
+    const especieLabel = pet.especie;
     document.getElementById('pet-especie')!.textContent = especieLabel;
     document.getElementById('pet-nome')!.textContent = pet.nome;
     const infoParts = [pet.raca || 'Raça não informada'];
@@ -30,15 +30,15 @@ onload = async function () {
         badge.className = 'badge badge-disponivel';
         badge.textContent = 'Disponível para adoção';
     }
-    document.getElementById('pet-doador')!.textContent = pet.doador_username || pet.doador || '—';
+    document.getElementById('pet-doador')!.textContent = pet.doador_nome || '—';
     document.getElementById('pet-descricao')!.textContent = pet.descricao || '';
     const actionsDiv = document.getElementById('detail-actions')!;
     const token = localStorage.getItem('access_token');
     if (token) {
         try {
-            const whoResponse = await authFetch(backendAddress + 'accounts/whoami/');
-            if (whoResponse.ok) {
-                const userData = await whoResponse.json();
+            const meResponse = await authFetch(backendAddress + 'auth/me/');
+            if (meResponse.ok) {
+                const userData = await meResponse.json();
                 const userId = userData.id || userData.user_id;
                 const doadorId = pet.doador_id || pet.doador;
                 if (userId && doadorId && Number(userId) === Number(doadorId)) {

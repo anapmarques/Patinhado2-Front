@@ -2,7 +2,7 @@
 onload = async () => {
     var _a;
     try {
-        const response = await authFetch(backendAddress + 'api/profile/dashboard/');
+        const response = await authFetch(backendAddress + 'auth/profile/');
         if (response.ok) {
             const data = await response.json();
             document.getElementById('username').value = data.username || '';
@@ -30,7 +30,7 @@ const updateProfile = async (evento) => {
     const telefone = document.getElementById('telefone').value;
     const endereco = document.getElementById('endereco').value;
     try {
-        const response = await authFetch(backendAddress + 'api/profile/', {
+        const response = await authFetch(backendAddress + 'auth/profile/', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, first_name, last_name, telefone, endereco })

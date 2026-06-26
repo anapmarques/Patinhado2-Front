@@ -12,7 +12,7 @@ const register = async (evento: Event) => {
     const last_name = (document.getElementById('last_name') as HTMLInputElement).value;
 
     try {
-        const response = await fetch(backendAddress + 'accounts/register/', {
+        const response = await fetch(backendAddress + 'auth/register/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password, password2, first_name, last_name })

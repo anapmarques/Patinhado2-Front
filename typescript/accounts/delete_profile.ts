@@ -12,7 +12,7 @@ const deleteProfile = async (evento: Event) => {
     }
 
     try {
-        const response = await authFetch(backendAddress + 'api/profile/', {
+        const response = await authFetch(backendAddress + 'auth/profile/', {
             method: 'DELETE'
         });
 
